@@ -10,7 +10,7 @@ const ListTodoItem = ({todoList, handleToggleComplete}) => {
                     <div key={index} className='todo-list'>
                         <input
                         type="checkbox"
-                        // checked= {}
+                        checked= {list.completed}
                         onChange={() => handleToggleComplete(index)}
                     />
                     <p>{list.text}</p>
