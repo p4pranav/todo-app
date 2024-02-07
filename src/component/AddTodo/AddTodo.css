@@ -26,6 +26,12 @@
     cursor: not-allowed
 }
 
+.todo-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
 .list-todo-container {
     margin-top: 32px;
 }

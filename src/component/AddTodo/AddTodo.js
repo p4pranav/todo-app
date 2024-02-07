@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useMemo } from 'react'
 import ListTodoItem from '../ListTodoItems/ListTodoItem'
 import './AddTodo.css'
 
@@ -16,24 +16,33 @@ const AddTodo = () => {
     }
 
     const handleToggleComplete = (index) => {
-        console.log(index)
-        const todoList = [...todo]
-        todoList?.[index]?.completed = !todoList?.[index]?.completed
+        const completedTodo = [...todo]
+        completedTodo[index].completed = !completedTodo[index].completed 
         setTodo(completedTodo)
     }
 
-    return(
-        <>
-        <div className='add-todo-container'>
-            <h1>ADD NEW TODO</h1>
-            <input type='text' value={inputText} onChange={handleInputChange} placeholder='Enter new todo'/>
-            <button type='button' onClick={handleAddTodo} disabled={inputText === ''}> Add Todo </button>
-        </div>
+    const completedTodoCount = useMemo(() => {
+        return todo.filter(todo => todo.completed).length;
+      }, [todo]);
 
-        <div className='list-todo-container'>
-            <ListTodoItem todoList= {todo} handleToggleComplete={handleToggleComplete}/>
-        </div>
-        </>
+    return(
+            <>
+                <div className='add-todo-container'>
+                    <h1>ADD NEW TODO</h1>
+                    <input type='text' value={inputText} onChange={handleInputChange} placeholder='Enter new todo'/>
+                    <button type='button' onClick={handleAddTodo} disabled={inputText === ''}> Add Todo </button>
+                </div>
+
+                <div className='todo-container'>
+                    <div className='list-todo-container'>
+                        <ListTodoItem todoList= {todo} handleToggleComplete={handleToggleComplete}/>
+                    </div>
+
+                    <div>
+                        <h4>Number of completed To Do items: {completedTodoCount}</h4>
+                    </div>
+                </div>
+            </>
     )
 }
 
