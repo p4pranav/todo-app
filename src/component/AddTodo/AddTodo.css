@@ -1,0 +1,31 @@
+.add-todo-container {
+    text-align: center;
+}
+
+.add-todo-container > input {
+    margin-top: 16px;
+    padding: 16px;
+    border-radius: 12px;
+    font-size: 16px;
+    border: 1px solid gray;
+}
+
+.add-todo-container > button {
+    padding: 18px 28px 18px 28px;
+    margin-left: 16px;
+    border-radius: 8px;
+    background-color: #24a0ed;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.add-todo-container > button:disabled{
+    background-color: grey;
+    border: none;
+    cursor: not-allowed
+}
+
+.list-todo-container {
+    margin-top: 32px;
+}

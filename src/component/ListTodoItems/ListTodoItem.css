@@ -1,0 +1,13 @@
+.list-container {
+    padding: 20px;
+}
+.todo-list {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    margin-top: 12px;
+}
+
+.todo-list > p {
+    font-size: 20px;
+}
